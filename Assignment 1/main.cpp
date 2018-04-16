@@ -1,3 +1,19 @@
+/**********************************************************
+
+    Taylor Evans
+    CS 360
+    Assignment 1
+
+    This file is the main file for the ConnectFourBoard.
+    This file is the driver file for the connect four game.
+    It gets input from the user to see if they would like to
+    play or quit the game. If prompts for each players move
+    until the game has been won or if there is a tie. This 
+    file drives the class by calling the necessary methods
+    to play the game.
+
+***********************************************************/
+
 #include "ConnectFourBoard.h"
 #include <iostream>
 using namespace std;
@@ -14,7 +30,7 @@ int main()
     cout << "0: quit\n1: new game\nEnter choice: ";
     cin >> choice;
 
-    while(!validChoice)
+    while(!validChoice)  //Validates input to play the game
     {
         if(choice == '0')
         {
@@ -34,7 +50,7 @@ int main()
         }
     }
 
-    while(stillPlaying)
+    while(stillPlaying)  //Continues playing until they want to quit
     {
         int moveCount = 0;
         ConnectFourBoard game;
@@ -42,13 +58,13 @@ int main()
         bool gameOver = false;
         bool replayChoice = false;
 
-        while(!gameOver)
+        while(!gameOver) //Continues the current game until win or tie
         {
             string colChoice;
             char playerMove = game.getCurrentPlayer();
             bool winner = false;
 
-            if(playerMove == 'R')
+            if(playerMove == 'R')  //Play for red
             {
                 cout << "It is red's turn.\nEnter column (0-6): ";
                 cin >> colChoice;
@@ -108,7 +124,7 @@ int main()
                 gameOver = true;
             }
         }
-
+        //Current game is over so checks to see if they want to play again
         cout << "0: quit\n1: new game\nEnter choice: ";
         cin >> choice;
 
