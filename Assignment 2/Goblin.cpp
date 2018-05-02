@@ -20,6 +20,7 @@ using namespace std;
 //Constructor that creates the Goblin with all of its attributes
 Goblin::Goblin(int hp, const int str, const int con, int xPos, int yPos) : Enemy(hp, str, con, xPos, yPos)
 {
+    print();
 }
 
 /**************************************************

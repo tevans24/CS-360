@@ -21,6 +21,7 @@ using namespace std;
 Troll::Troll(int hp, const int str, const int con, int xPos, int yPos) : Enemy(hp, str, con, xPos, yPos)
 {
     maxHealth = hp;
+    print();
 }
 
 /**************************************************
