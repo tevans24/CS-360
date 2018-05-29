@@ -54,7 +54,7 @@ int main() {
 		inFile.close();
 
 		//create the GameBoard
-		gb = new GameBoard(5,5);
+		gb = new GameBoard(30,30);
 
 		//game loop
 		//NOTE: traditionally, a game loop is a while(true) loop. I am limiting it to
