@@ -12,6 +12,7 @@ BinaryTree::BinaryTree()
 BinaryTree::~BinaryTree()
 {
     cleanupTree();
+    cout << "root has been deleted" << endl;
 }
 
 void BinaryTree::addNode(int value)
@@ -54,17 +55,20 @@ Node* BinaryTree::search(int value)
 {
     Node *temp = root;
     Node *searchNode = NULL;
+    cout << "Searching for value: " << value << endl;
 
     if(temp != NULL)
     {
-        if(temp->getValue() == value)
-        {
-            searchNode = temp;
-        }
-        else
-        {
-            searchNode = search(value, root);
-        }
+        searchNode = search(value, root);
+    }
+
+    if(searchNode == NULL)
+    {
+        cout << "Value was not found" << endl;
+    }
+    else
+    {
+        cout << "The value was found!!!" << endl;
     }
 
     return searchNode;
@@ -105,14 +109,12 @@ Node* BinaryTree::search(int value, Node *leaf)
 }
 
 void BinaryTree::cleanupTree()
-{
+{   cout << "calling clean up on root" << endl;
     cleanupTree(root);
 }
 
 void BinaryTree::cleanupTree(Node *leaf)
-{
-    delete leaf->getLeft();
-    delete leaf->getRight();
+{ 
     delete leaf;
 }
 
@@ -120,10 +122,12 @@ void BinaryTree::printTree(bool Ascending)
 {
     if(Ascending)
     {
+        cout << "Printing tree in ascending order============================" << endl;
         printTreeAscending(root);
     }
     else
     {
+        cout << "\nPrinting tree in descending order============================\n" << endl;
         printTreeDescending(root);
     }
 }
@@ -136,7 +140,7 @@ void BinaryTree::printTreeAscending(Node *leaf)
         {
             printTreeAscending(leaf->getLeft());
         }
-        cout << leaf->getValue() << " ";
+        cout << "val: " << leaf->getValue() << endl;
         if(leaf->getRight() != NULL)
         {
             printTreeAscending(leaf->getRight());
@@ -152,7 +156,7 @@ void BinaryTree::printTreeDescending(Node *leaf)
         {
             printTreeDescending(leaf->getRight());
         }
-        cout << leaf->getValue() << " ";
+        cout << "val: " << leaf->getValue() << endl;
         if(leaf->getLeft() != NULL)
         {
             printTreeDescending(leaf->getLeft());

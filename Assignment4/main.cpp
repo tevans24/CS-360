@@ -22,7 +22,7 @@ int main(){
 
   	while (getline (inFile,line)){
 		value = stoi(line);
-		//cout << "value: " << value << endl;
+		cout << "value: " << value << endl;
         bt->addNode(value);
 	}
 

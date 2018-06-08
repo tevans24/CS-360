@@ -1,5 +1,8 @@
 #include "Node.h"
 #include <cstdlib>
+#include <iostream>
+
+using namespace std;
 
 Node::Node(int val)
 {
