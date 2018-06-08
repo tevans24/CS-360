@@ -20,13 +20,18 @@ int main(){
 
     BinaryTree *bt = new BinaryTree();
 
-  	while (getline (inFile,line)){
-		value = stoi(line);
-		cout << "value: " << value << endl;
-        bt->addNode(value);
+	try{
+		while (getline (inFile,line)){
+			value = stoi(line);
+			cout << "value: " << value << endl;
+			bt->addNode(value);
+		}
+	
+		inFile.close();
 	}
-
-	inFile.close();
+	catch(...){
+		//File is empty or does not exist
+	}
 
     bt->printTree(TRUE);
 
